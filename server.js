@@ -42,6 +42,8 @@ io.on("connection", (socket) => {
                     obj = await ccmp.run(compileData);
                 else if (compileData.extention === "cpp")
                     obj = await cppcmp.run(compileData);
+                else if(compileData.extention==="java")
+                    obj = await javacmp.run(compileData);
                 io.to(obj.socketId).emit("Compiler", obj);
             }
         }
